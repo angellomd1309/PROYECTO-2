@@ -18,14 +18,14 @@ PRACTICA 4 DISEÑO DE FIRMWARE
 #define SALIDA0 2
 #define SALIDA1 3
 
-const int filas = 4; // Número de filas en el teclado matricial
-const int columnas = 4; // Número de columnas en el teclado matricial
+const int filas = 4; // numero de filas en el teclado matricial
+const int columnas = 4; // numero de columnas en el teclado matricial
 
-// Definición de los pines utilizados para el teclado matricial
+// definir de los pines utilizados para el teclado matricial
 byte filaPIN[filas] = { 9, 8, 7 };
 byte columnaPin[columnas] = { 6, 5, 4 };
 
-// Definición de los códigos de tecla
+// definir de los códigos de tecla
 char keys[filas][columnas] = {
   {'1','2','3'},
   {'4','5','6'},
@@ -35,13 +35,13 @@ char keys[filas][columnas] = {
 
 Keypad MATRICIAL = Keypad(makeKeymap(keys), filaPIN, columnaPin, filas, columnas);
 
-const int cantidadRELE = 5; // Número de LEDs a controlar
-const int relePINS[cantidadRELE] = { 10, 11, 12, 13, A5 }; // Pines de los LEDs
+const int cantidadRELE = 5; // numero de rele a controlar
+const int relePINS[cantidadRELE] = { 10, 11, 12, 13, A5 }; // pins de los LEDs
 
-const int cantidadBOTON = 5; // Número de botones
-const int botonPINS[cantidadBOTON] = { A0, A1, A2, A3, A4 }; // Pines de los botones
+const int cantidadBOTON = 5; // numero de botones
+const int botonPINS[cantidadBOTON] = { A0, A1, A2, A3, A4 }; // pins de los botones
 
-bool estadoRELE[cantidadRELE] = { true }; // Estado de los LEDs
+bool estadoRELE[cantidadRELE] = { true }; // estado de los rele
 
 void setup() {
   ReleConfig();
@@ -52,19 +52,19 @@ void setup() {
 void loop() {
   char TECLA = MATRICIAL.getKey();
 
-  // Control de los LEDs a través del teclado matricial
-  if (TECLA) {
+ 
+  if (TECLA) {  // Control de los LEDs a través del teclado matricial
     if (TECLA >= '1' && TECLA <= '5') {
-      int ledIndex = TECLA - '1'; // Mapea el valor de tecla a un índice de LED
-      estadoRELE[ledIndex] = !estadoRELE[ledIndex]; // Invierte el estado del LED
+      int ledIndex = TECLA - '1'; 
+      estadoRELE[ledIndex] = !estadoRELE[ledIndex]; // Invierte el estado del rele
       digitalWrite(relePINS[ledIndex], estadoRELE[ledIndex]);
     }
   }
 
-  // Control de los LEDs a través de los botones adicionales
+  // Control de los rele a través de los botones adicionales
   for (int i = 0; i < cantidadBOTON; i++) {
     if (digitalRead(botonPINS[i]) == LOW) {
-      estadoRELE[i] = !estadoRELE[i]; // Invierte el estado del LED
+      estadoRELE[i] = !estadoRELE[i]; // Invierte el estado del rele
       digitalWrite(relePINS[i], estadoRELE[i]);
       delay(100); //antirebote
     }
