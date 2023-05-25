@@ -6,7 +6,7 @@ QUINTO PERITO
 SECCION: A
 CURSO: TALLER DE ELECTRONICA DIGITAL Y REPARACION DE COMPUTADORAS
 ALUMNOS: MIGUEL ANGEL ALVARADO GONZALEZ, JORGE DIEGO SEBASTIAN QUEME ANDRINO, ANGELLO GABRIEL MANSILLA DIEGUEZ
-CARNETS: 2022380 y 2022472
+CARNETS: 2022486, 2021430, 2022380
 PRACTICA 4 DISEÑO DE FIRMWARE
 */
 
@@ -23,7 +23,7 @@ const int columnas = 4; // Número de columnas en el teclado matricial
 
 // Definición de los pines utilizados para el teclado matricial
 byte filaPIN[filas] = { 9, 8, 7 };
-byte columnaPin[columnas] = { 5, 4, 3 };
+byte columnaPin[columnas] = { 6, 5, 4 };
 
 // Definición de los códigos de tecla
 char keys[filas][columnas] = {
