@@ -1,3 +1,18 @@
+/*
+FUNDACION KINAL
+CENTRO EDUCATIVO TECNICO LARELEORAL KINAL
+PERITO EN ELECTRONICA
+QUINTO PERITO
+SECCION: A
+CURSO: TALLER DE ELECTRONICA DIGITAL Y REPARACION DE COMPUTADORAS
+ALUMNOS: MIGUEL ANGEL ALVARADO GONZALEZ, JORGE DIEGO SEBASTIAN QUEME ANDRINO, ANGELLO GABRIEL MANSILLA DIEGUEZ
+CARNETS: 2022380 y 2022472
+PRACTICA 4 DISEÑO DE FIRMWARE
+*/
+
+
+
+
 #include <Keypad.h>
 
 #define SALIDA0 0
@@ -51,7 +66,7 @@ void loop() {
     if (digitalRead(botonPINS[i]) == LOW) {
       estadoRELE[i] = !estadoRELE[i]; // Invierte el estado del LED
       digitalWrite(relePINS[i], estadoRELE[i]);
-      delay(100); // Retardo para evitar lecturas múltiples debido a rebotes
+      delay(100); //antirebote
     }
   }
 }
@@ -62,7 +77,7 @@ int ReleConfig()
     pinMode(relePINS[i], OUTPUT);
     pinMode(SALIDA0, OUTPUT);
     pinMode(SALIDA1, OUTPUT);
-    digitalWrite(relePINS[i], HIGH); // Apaga los LEDs al inicio
+    digitalWrite(relePINS[i], HIGH); // Apaga los rele al inicio
   }
       return (cantidadRELE);
 }
