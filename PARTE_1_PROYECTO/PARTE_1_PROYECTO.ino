@@ -15,8 +15,8 @@ PRACTICA 4 DISEÑO DE FIRMWARE
 
 #include <Keypad.h>
 
-#define SALIDA0 0
-#define SALIDA1 1
+#define SALIDA0 2
+#define SALIDA1 3
 
 const int filas = 4; // Número de filas en el teclado matricial
 const int columnas = 4; // Número de columnas en el teclado matricial
