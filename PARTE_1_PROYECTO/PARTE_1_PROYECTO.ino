@@ -1,4 +1,4 @@
-/*
+2/*
 FUNDACION KINAL
 CENTRO EDUCATIVO TECNICO LARELEORAL KINAL
 PERITO EN ELECTRONICA
@@ -89,3 +89,6 @@ int BotonConfig()
   }
   return (cantidadBOTON);
 }
+
+
+https://drive.google.com/drive/u/0/mobile/folders/1H-XZb6-FfbbXEtjQPeQyN48LJpdjHvp6
